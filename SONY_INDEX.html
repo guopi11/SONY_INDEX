@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SONY中国</title>
+<script src="js/sony.js"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
+<style>
+*{ margin:0; padding:0;}
+a{ color:#fff; text-decoration:none;}
+li{ list-style:none;}
+img{ border:none;}
+body{ background:url(img/bg.gif) repeat-x; height:2279px; width:1200px; margin:0 auto;}
+.clear { zoom:1; }
+.clear:after { content:''; display:block; clear:both; }
+
+#top{ width:1200px; height:105px; position:relative;}
+#logo{ margin:20px 0 0 138px; float:left}
+
+#header{ width:276px; height:12px; margin-top:16px; margin-right:136px;float:right; font-size:9px; position:relative; }
+#header div{ float:left;color:#616161; margin-right:9px; background:url(img/trangle1.gif) no-repeat 0 6px;}
+#header div:hover a{ color:#fff;}
+#header div:hover{ background:url(img/triangle2.gif) no-repeat 0 6px;}
+#header div a{color:#818181; margin-left:7px;}
+#header span{ color:#fff; display:inline-block; float:right;}
+#search{ width:196px; height:40px; position:absolute; right:135px; bottom:7px; border:2px solid #424242;}
+#search input{ width:156px; height:40px; background:none; border:none; display:inline-block; float:left }
+#search_logo{ width:40px; height:40px; background:url(img/search_bg.gif) no-repeat -2px 2px; display:inline-block; float:left }
+#search .active1{ background:#fff }
+#search .active2{ background:url(img/search_bg2.gif);}
+
+#nav{  width:535px; height:30px;position:absolute; left:138px; bottom:0;}
+#nav ul li{ float:left; margin-right:40px; }
+#nav ul li:hover span{color:#414141}
+#nav ul li:hover p{background:url(img/nav_bg.gif) repeat-x  bottom;}
+#nav ul li a{ color:#fff; font-size:13px}
+#nav ul li p{ padding-bottom:13px; display:inline-block;}
+#nav ul li span{ display:inline-block; margin-left:6px; color:#808080;}
+#nav #buy_list{ width:960px; height:552px; z-index:2;;position:absolute; left:-236px;top:30px; display:none;box-shadow: 1px 1px 1px 1px #888888}
+#b_title{ height:60px; width:960px;}
+#b_list{ background:#fff; width:960px; height:492px; position:relative;}
+#t_left{ width:640px; height:60px; background:#f0f1f2; float:left;}
+#t_left a{ display:inline-block; margin-left:382px;}
+#t_right{ width:320px; height:60px; background:#e6e6e8; float:left;}
+#t_right a{ display:inline-block; margin-left:118px;}
+
+#b_list ul{ margin-top:22px; width:160px; float:left;}
+#b_list li{font-size:12px; line-height:20px; color:#949494;padding-left:24px; width:160px; background:url(img/t/dot.gif) no-repeat 14px 10px;}
+#b_list li:hover{ color:#50bcfd; background:url(img/t/dot2.gif) no-repeat 14px 10px;}
+.b_wrap{ width:160px; height:492px; float:left;}
+.b_wrap img{ margin-left:16px; margin-bottom:3px;}
+#tel{ position:absolute; left:25px; bottom:21px;}
+#main_ad{ width:1200px; height:520px; margin-bottom:42px;}
+
+#main_show{ width:6000px; height:315px; position:relative}
+#filter1,#filter2{ background:#fff; height:272px; width:470px; position:absolute; z-index:2; opacity:0.8;filter:Alpha(opacity=80);}
+#filter1{ top:43px; left:-352px;}
+#filter2{ top:43px; left:1083px;}
+.btn{ width:15px; height:15px; background:url(img/tab_btn1.gif) no-repeat; position:absolute; left:994px;cursor:pointer}
+#btn2{ left:1022px;}
+#btn3{ left:1050px;}
+.active{ background:url(img/tab_btn2.gif) no-repeat;}
+#main_show h2{ margin-left:135px; float:left; font-size:21px;}
+#main_show ul{ height:272px;  margin-top:43px; margin-left:124px; left:0; position:absolute}
+#main_show ul a{ width:232px; height:272px;}
+#main_show ul a:hover p{background:url(img/show_bg2.gif) no-repeat 186px 0;}
+#main_show ul li{ width:232px; margin-right:8px; height:272px; float:left;background:#eff0f1;}
+#main_show ul li p{ color:#595959; font-size:14px; line-height:20px; margin-top:13px; margin-left:15px; background:url(img/show_bg.gif) no-repeat 186px 0;}
+
+#main_news{ width:1200px; height:592px; margin-top:55px; background:#f0f1f3;}
+#news_wrap{ margin-left:124px;height:492px; width:1052px; margin-top:40px; float:left;}
+#news_wrap img{ width:112px; height:84px;}
+#main_news ul{ height:492px; width:285px; margin-right:35px; float:left; }
+#main_news .title{ margin-left:11px; font-size:15px; margin-bottom:24px;}
+#main_news ul li{ margin-bottom:8px; float:left; }
+#main_news ul li a{ float:left;}
+#main_news ul li div{ width:72px; height:18px; background:#d0d1d3; float:left; margin-left:17px; font-size:9px; line-height:18px; color:#e4ecf2; text-align:center; margin-bottom:5px;}
+#main_news ul li p{ width:156px; font-size:12px; float:left; margin-left:17px; line-height:17px; color:#595959}
+
+#f_link{ width:960px; height:146px; margin:40px auto 38px;}
+#f_link h2{ margin-left:11px; font-size:16px; margin-bottom:20px; line-height:16px;}
+#f_link li{ width:152px; height:111px; margin-right:8px; float:left;}
+#f_link li a{width:152px; height:111px; background:url(img/index_cop_logo_1.jpg) no-repeat; display:inline-block;}
+
+#info{ width:960px; height:265px; margin:68px auto 0; position:relative;}
+#info{ color:#fff; font-size:12px;}
+#info a:hover{color:#50bcfd}
+#info ul{ float:left}
+#info #agency{ margin-left:12px; width:100px; height:60px; background:url(img/footer/footer_tit_01.gif) no-repeat top left;}
+#info #agency li{ color:#fff; margin-top:38px; font-size:12px;; background:url(img/search.gif) no-repeat 77px;}
+#info #agency li:hover a{color:#50bcfd}
+#info #agency li:hover{background:url(img/search2.gif) no-repeat 77px; }
+
+#buy_list{ margin-left:220px; width:128px; height:204px;background:url(img/footer/footer_tit_02.gif) no-repeat top left;}
+#buy_list li{ line-height:24px;}
+#first_list{ margin-top:38px;}
+#buy_list #last_list{  margin-top:8px; width:72px; display:inline-block; color:#808185; background:url(img/arrow.gif) no-repeat 56px 4px; }
+#buy_list #last_list:hover{ color:#fff;background:url(img/arrow2.gif) no-repeat 56px 4px;}
+
+#vip{ width:85px; height:80px; margin-left:32px;background:url(img/footer/footer_tit_03.gif) no-repeat top left;}
+.first_list li{ margin-top:38px;}
+#info li{ line-height:24px;}
+
+#related_link{ width:85px; height:73px; margin-left:87px;background:url(img/footer/foot_tit_05.gif) no-repeat top left;}
+
+#contact{ width:142px; height:188px; margin-left:60px;background:url(img/footer/footer_tit_04.gif) no-repeat top left;}
+
+#f_us{background:url(img/footer/follow_us.gif) no-repeat top left; position:absolute; right:11px; top:80px;}
+#f_us li{ width:142px; height:40px;background:#424243; margin-top:5px; font-size:12px; line-height:40px; text-align:center;}
+#f_us li:hover{background:#424243;background:#50bcfd; color:#fff}
+#f_us .first_list2 li{ margin-top:21px;}
+
+#footer{ width:943px; height:97px;  margin-top:34px; margin-left:130px; float:left; position:relative; background:url(img/footer_logo.gif) no-repeat 0 0;}
+#f_rows img,#s_rows img,#s_rows a,s_rows{ float:left}
+#f_rows a{ float:left}
+#f_rows{ width:943px; height:34px; float:left; margin-top:2px; margin-left:103px; }
+#pic_2{ margin-left:37px; }
+#pic_3{ margin-top:-3px; margin-left:20px;}
+#pic_4{  margin-left:29px;margin-top:-1px;}
+#s_rows{ width:444px; height:13px; float:left; margin-bottom:12px;}
+#s_rows a{ margin-right:26px;}
+#s_rows p{ font-size:11px; line-height:13px; color:#787878}
+#pic_6{ margin-top:1px;}
+
+#logo_list{ width:165px; height:30px; position:absolute; right:1px; top:16px;}
+#logo_list img{ margin-right:3px;width:30px; height:30px; border:none;}
+#logo_list a{  float:left}
+
+</style>
+</head>
+
+<body>
+<div id="top">
+    <div id="logo">
+    	<a href="javascript:;"><img src="img/SONY_logo.gif" /></a>
+    </div>
+    <div id="header">
+        <div><a href="javascript:;">About Sony Group</a></div>
+        <div><a href="javascript:;">Global Home</a></div>
+        <span>索尼中国</span>
+    </div>
+    <div id="nav">
+    	<div id="buy_list">
+        	<div id="b_title">
+            	<div id="t_left"><img style="margin-top:25px; margin-left:14px" src="img/t/subMenu_img_13.gif" /><a href="javascript:;"><img src="img/t/store_left.gif" /></a></div>
+                <div id="t_right"><img  style="margin-top:25px;margin-left:14px" src="img/t/subMenu_img_14.gif" /><a href="javascript:;"><img src="img/t/store_right.gif" /></a></div>
+            </div>
+            <div id="b_list">
+                <img src="img/t/tel.gif" id="tel" />
+            	<div class="b_wrap">
+                	<ul>
+                    	<img src="img/t/01.jpg"/>
+                        <a href="javascript:;"><li>PlayStation®4 Pro</li></a>
+                        <a href="javascript:;"><li>PlayStation®4</li></a>
+                        <a href="javascript:;"><li>PlayStation®VR</li></a>
+                        <a href="javascript:;"><li>PlayStation®Vita</li></a>
+                        <a href="javascript:;"><li>PlayStation® 配件</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/02.jpg"/>
+                        <a href="javascript:;"><li>智能手机</li></a>
+                        <a href="javascript:;"><li>智能手机配件</li></a>
+                        <a href="javascript:;"><li>FES电子手表</li></a>
+                        <a href="javascript:;"><li>便携式投影仪</li></a>
+                        <a href="javascript:;"><li>KOOV™教育机器人</li></a>
+                    </ul>
+                </div>
+                <div class="b_wrap">
+                	<ul>
+                    	<img src="img/t/03.gif"/>
+                        <a href="javascript:;"><li>液晶电视机</li></a>
+                        <a href="javascript:;"><li>Blu-ray Disc™<br>/ DVD 播放</li></a>
+                        <a href="javascript:;"><li>投影机</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/04.gif"/>
+                        <a href="javascript:;"><li>家庭影音系统</li></a>
+                        <a href="javascript:;"><li>家庭音频系统</li></a>
+                        <a href="javascript:;"><li>高保真音响组件</li></a>
+                        <a href="javascript:;"><li>迷你音响组合</li></a>
+                        <a href="javascript:;"><li>无线扬声器</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/05.gif"/>
+                        <a href="javascript:;"><li>MP4 / MP3播放器</li></a>
+                        <a href="javascript:;"><li>数码录音棒</li></a>
+                        <a href="javascript:;"><li>耳机</li></a>
+                        <a href="javascript:;"><li>闹钟收音机</li></a>
+                    </ul>
+                </div>
+                <div class="b_wrap">
+                	<ul>
+                    	<img src="img/t/06.gif"/>
+                        <a href="javascript:;"><li>微单™数码相机</li></a>
+                        <a href="javascript:;"><li>数码单反/单电相机</li></a>
+                        <a href="javascript:;"><li>镜头</li></a>
+                        <a href="javascript:;"><li>数码相机</li></a>
+                        <a href="javascript:;"><li>数码摄像机</li></a>
+                        <a href="javascript:;"><li>运动摄像机</li></a>
+                        <a href="javascript:;"><li>数码影像产品配件</li></a>
+                        <a href="javascript:;"><li>索尼存储卡</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/07.jpg"/>
+                        <a href="javascript:;"><li>数码配件首页</li></a>
+                        <a href="javascript:;"><li>液晶电视机配件</li></a>
+                        <a href="javascript:;"><li>视频游戏机配件</li></a>
+                        <a href="javascript:;"><li>数码摄像机配件</li></a>
+                        <a href="javascript:;"><li>数码相机配件</li></a>
+                        <a href="javascript:;"><li>微单™数码相机配件</li></a>
+                        <a href="javascript:;"><li>数码单反/单电配件</li></a>
+                        <a href="javascript:;"><li>音频产品配件</li></a>
+                    </ul>
+                </div>
+                <div class="b_wrap">
+                	<ul>
+                    	<img src="img/t/08.gif"/>
+                        <a href="javascript:;"><li>高解析度音频设备</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/09.gif"/>
+                        <a href="javascript:;"><li>光学记录媒体</li></a>
+                        <a href="javascript:;"><li>民用记录媒体</li></a>
+                        <a href="javascript:;"><li>闪存记录媒体</li></a>
+                        <a href="javascript:;"><li>移动硬盘</li></a>
+                        <a href="javascript:;"><li>移动电源</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/10.gif"/>
+                    </ul>
+                </div>
+                <div class="b_wrap">
+                	<ul>
+                    	<img src="img/t/11.gif"/>
+                        <a href="javascript:;"><li>广播及专业视音频产品</li></a>
+                        <a href="javascript:;"><li>投影机</li></a>
+                        <a href="javascript:;"><li>4K数字影院</li></a>
+                        <a href="javascript:;"><li>视频安防</li></a>
+                        <a href="javascript:;"><li>归档和存储</li></a>
+                        <a href="javascript:;"><li>医疗</li></a>
+                        <a href="javascript:;"><li>视频通讯</li></a>
+                        <a href="javascript:;"><li>专业产品解决方案</li></a>
+                    </ul>
+                </div>
+                <div class="b_wrap">
+                	 <ul>
+                    	<img src="img/t/12.gif"/>
+                        <a href="javascript:;"><li>半导体器件</li></a>
+                        <a href="javascript:;"><li>电池产品</li></a>
+                        <a href="javascript:;"><li>工业摄像机模组</li></a>
+                    </ul>
+                    <ul>
+                    	<img src="img/t/13.gif"/>
+                        <a href="javascript:;"><li>专业记录媒体</li></a>
+                        <a href="javascript:;"><li>数据存储媒体</li></a>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    	<ul id="nav_list">
+        	<li><div><a href="javascritp:;"><p>索尼产品</p><span>▾</span></a></div></li>
+            <li><div><a href="javascritp:;"><p>服务与支持</p></a></div></li>
+            <li><div><a href="javascritp:;"><p>企业社会责任</p></a></div></li>
+            <li><div><a href="javascritp:;"><p>人才招聘</p></a></div></li>
+            <li><div><a href="javascritp:;"><p>新闻中心</p></a></div></li>
+        </ul>
+    </div>
+    <div id="search">
+    	<input type="text"   id="search_text"/>
+    	<div id="search_logo" ></div>
+    </div>
+</div>
+<div id="main_wrap">
+	<div id="main_ad"><a href="javascript:;"><img src="img/ad1.gif" /></a></div>
+    <div id="main_show" class="clear">
+    	<h2>最新推荐</h2>
+        <div id="filter1"></div>
+        <div id="filter2"></div>
+        <div class="btn active" id="btn1"></div>
+        <div class="btn" id="btn2"></div>
+        <div class="btn" id="btn3"></div>
+        <ul id="show_list">
+        	<li><a href=""><img src="img/show_1.jpg"/><p>FES Watch U<br/>智能设计手表<br/>新品登场</p></a></li>
+            <li><a href=""><img src="img/show_2.jpg"/><p>2018索尼世界摄影大赛<br/>征稿开启 期待您的参与！</p></a></li>
+            <li><a href=""><img src="img/show_3.jpg"/><p>明日之镜 索尼呈现<br/>SEL1635GM<br/>新品发布！</p></a></li>
+            <li><a href=""><img src="img/show_4.jpg"/><p>炫丽彩灯 “有型 有色”<br/>SRS-XB40 营造自己的派对</p></a></li>
+            <li><a href=""><img src="img/show_5.jpg"/><p>百寸巨屏 预约开启<br/>Z9D系列 画质旗舰</p></a></li>
+            <li><a href=""><img src="img/show_6.jpg"/><p>FE 12-14mm F4 G<br/>全画幅超广角G镜头</p></a></li>
+            <li><a href=""><img src="img/show_7.jpg"/><p>感人画质 随身陪伴<br/>索尼精选Hi-Res音乐新版手<br/>机客户端上线</p></a></li>
+            <li><a href=""><img src="img/show_8.jpg"/><p>专业摄影师带你识黑卡™<br/>索尼黑卡™深度解析</p></a></li>
+            <li><a href=""><img src="img/show_9.jpg"/><p>索尼(中国)官方微信账号<br/>扫二维码即刻关注</p></a></li>
+            <li><a href=""><img src="img/show_10.jpg"/><p>索尼中国手机端<br/>Andriod 3.0版本现已发布<br/>IOS版本即将发布</p></a></li>
+            <li><a href=""><img src="img/show_11.jpg"/><p>为您提供索尼数码产品<br/>新鲜热力的优惠和促销信息<br/>和新品资讯</p></a></li>
+            <li><a href=""><img src="img/show_12.jpg"/><p>F55/F5 Super 35mm<br/>4K数字摄影机 惊世绽放</p></a></li>
+        </ul>
+    </div>
+    <div id="main_news">
+    	<div id="news_wrap">
+            <ul id="news">
+            	<p class="title">新闻动态</p>
+             	<li>
+                	<a href="javascript:;"><img src="img/li/01.jpg" /></a>
+                    	<div class="date">2017.07.05</div>
+                        <a href="javascript:;"><p>【微分享】：夏季最燃电影《蜘蛛侠：英雄归来》举办全球首映礼</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/02.jpg" /></a>
+                    	<div class="date">2017.07.05</div>
+                        <a href="javascript:;"><p>【微分享】：索尼便携式投影仪的包装设计荣获世界之星大奖</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/03.jpg" /></a>
+                    	<div class="date">2017.07.03</div>
+                        <a href="javascript:;"><p>【微分享—走向零负荷】索尼中美洲公司亮相2017年哈比鹰节 助力推广…</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/04.jpg" /></a>
+                    	<div class="date">2017.06.30</div>
+                        <a href="javascript:;"><p>【微分享】 华尔街日报：三十年后，索尼恢复生产黑胶唱片</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/05.jpg" /></a>
+                    	<div class="date">2017.06.28</div>
+                        <a href="javascript:;"><p>索尼免费开放其深度学习工具“核心库”</p></a>
+                </li>
+            </ul>
+            <ul id="update">
+            	<p class="title">站内更新</p>
+             	<li>
+                	<a href="javascript:;"><img src="img/li/06.jpg" /></a>
+                    	<div class="date">2016.06.08</div>
+                        <a href="javascript:;"><p>北京上海深圳多个岗位更新，各地千里马火热招募中</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/07.jpg" /></a>
+                    	<div class="date">2017.05.18</div>
+                        <a href="javascript:;"><p>传递科学光芒，打造趣味六一！索尼探梦科普万里行”登陆延安</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/08.jpg" /></a>
+                    	<div class="date">2017.06.21</div>
+                        <a href="javascript:;"><p>索尼亮相2017 上海NAB展</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/09.jpg" /></a>
+                    	<div class="date">2017.05.11</div>
+                        <a href="javascript:;"><p>索尼精选x拿索斯古典音乐 - 买Hi-Res专辑，赢取Walkman…</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/10.jpg" /></a>
+                    	<div class="date">2017.05.31</div>
+                        <a href="javascript:;"><p>【微分享—走向零负荷】2017夏威夷索尼公开赛再次被认证为“绿色活动…</p></a>
+                </li>
+            </ul>
+            <ul id="inform">
+            	<p class="title">重要通知</p>
+             	<li>
+                	<a href="javascript:;"><img src="img/li/11.jpg" /></a>
+                    	<div class="date">2017.02.08</div>
+                        <a href="javascript:;"><p>索尼开发行内首款三层堆叠式CMOS影像传感器——配…</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/12.jpg" /></a>
+                    	<div class="date">2017.03.07</div>
+                        <a href="javascript:;"><p>关于索尼投影机产品软件升级的通知（更新）</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/13.jpg" /></a>
+                    	<div class="date">2017.03.03</div>
+                        <a href="javascript:;"><p>2017SWPA中国摄影师入围人数再创新高</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/14.jpg" /></a>
+                    	<div class="date">2017.04.14</div>
+                        <a href="javascript:;"><p>索尼共获14项2017红点奖，OLED A1捧得红点最高奖</p></a>
+                </li>
+                <li>
+                	<a href="javascript:;"><img src="img/li/15.jpg" /></a>
+                    	<div class="date">2017.03.03</div>
+                        <a href="javascript:;"><p>Good Design 2016年度金奖获奖产品 可编程拼插机器人“…</p></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="f_link">
+    	<h2>旗下公司</h2>
+        <ul>
+        	<li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+        </ul>
+    </div>
+</div>
+<div id="info">
+	<ul id="agency">
+    	<li><a href="javascript:;">就近门店查询</a></li>
+    </ul>
+    <ul id="buy_list">
+    	<a href="javascript:;"><li id="first_list">Sony Store 直营店</li></a>
+        <a href="javascript:;"><li>索尼签约经销商</li></a>
+        <a href="javascript:;"> <li>Sony Store 在线商城</li></a>
+        <a href="javascript:;"><li>Sony Store 手机客户端</li></a>
+        <a href="javascript:;"><li>在线订购指南</li></a>
+        <a href="javascript:;"><li>咨询.订购.服务热线</li></a>
+        <a href="javascript:;" id="last_list"><li>在线服务</li></a>
+    </ul>
+    <ul id="vip">
+    	<a href="javascript:;" class="first_list"><li>产品注册</li></a>
+        <a href="javascript:;"><li>索尼会员注册</li></a>
+        <a href="javascript:;"> <li>会员权益详细</li></a>
+        <a href="javascript:;"><li>帮助中心</li></a>
+        <a href="javascript:;"><li>壁纸下载</li></a>
+        <a href="javascript:;"><li>索尼影像课堂</li></a>
+    </ul>
+    <ul id="related_link">
+    	<a href="javascript:;" class="first_list"><li>索尼中国研究院</li></a>
+        <a href="javascript:;"> <li>行业解决方案</li></a>
+    </ul>
+    <ul id="contact">
+    	<a href="javascript:;" class="first_list"><li>获取最新产品/活动的邮件</li></a>
+    </ul>
+    <ul id="f_us">
+    	<a href="javascript:;" class="first_list2"><li>索尼(中国)官方微博</li></a>
+        <a href="javascript:;" ><li>索尼(中国)官方微信</li></a>
+    </ul>
+</div>
+<div id="footer">
+	<div id="f_rows">
+    	<img src="img/footer_sony.gif" />
+        <a href="javascript:;"><img id="pic_2" src="img/footer_num.gif" /></a>
+        <a href="javascript:;"><img id="pic_3" src="img/footer_pic3.gif" /></a>
+        <a href="javascript:;"><img id="pic_4" src="img/footer_pic4_1.gif" /></a>
+    </div>
+    <div id="s_rows">
+    	<a href="javascript:;"><img id="pic_5" src="img/footer_pic5_1.gif" /></a>
+        <a href="javascript:;"><img id="pic_6" src="img/footer_pic6_1.gif" /></a>
+        <a href="javascript:;"><img id="pic_7" src="img/footer_pic7_1.gif" /></a>
+        <p>本网站包含推销产品或服务的广告</p>
+    </div>
+    <div id="logo_list">
+    	<a href="javascript:;"><img src="img/logo_1_1.gif"/></a>
+        <a href="javascript:;"><img /></a>
+        <a href="javascript:;"><img /></a>
+        <a href="javascript:;"><img /></a>
+        <a href="javascript:;"><img /></a>
+    </div>
+</div>
+</body>
+</html>
